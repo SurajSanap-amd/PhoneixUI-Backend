@@ -72,74 +72,8 @@ This application provides RESTful APIs to create, read, update, delete, and like
 * **GET** `/api/improvements/export`
 * **Description**: Download all improvement items in an Excel file.
 
-  ## File Structure
-
-  .mvn/
-    └── wrapper/
-        └── maven-wrapper.properties
-src/
-    ├── main/
-        ├── java/
-            └── com/
-                └── TPB/
-                    └── team_portal_backend/
-                        ├── controller/
-                            ├── AllIdeasController.java
-                            ├── DashboardController.java
-                            ├── IdeaController.java
-                            ├── LeaderboardController.java
-                            ├── ProfileController.java
-                            └── SubmitIdeaController.java
-                        ├── dto/
-                            ├── IdeaRequestDTO.java
-                            └── IdeaResponseDTO.java
-                        ├── enums/
-                            ├── Category.java
-                            ├── Complexity.java
-                            ├── ImpactLevel.java
-                            ├── Priority.java
-                            └── Status.java
-                        ├── mapper/
-                            └── IdeaMapper.java
-                        ├── model/
-                            └── Idea.java
-                        ├── repository/
-                            ├── AllIdeasRepository.java
-                            ├── DashboardRepository.java
-                            ├── IdeaRepository.java
-                            ├── LeaderboardRepository.java
-                            ├── ProfileRepository.java
-                            └── SubmitIdeaRepository.java
-                        ├── service/
-                            ├── AllIdeasService.java
-                            ├── DashboardService.java
-                            ├── IdeaService.java
-                            ├── LeaderboardService.java
-                            ├── ProfileService.java
-                            └── SubmitIdeaService.java
-                        ├── util/
-                            └── ExcelExporter.java
-                        └── TeamPortalBackendApplication.java
-        └── resources/
-            ├── application.properties
-            └── ideas_data.xlsx
-    └── test/
-        └── java/
-            └── com/
-                └── TPB/
-                    └── team_portal_backend/
-                        ├── controller/
-                            └── ImprovementItemControllerTest.java
-                        ├── repository/
-                            └── ImprovementItemRepositoryTest.java
-                        └── TeamPortalBackendApplicationTests.java
-.gitattributes
-.gitignore
-LICENSE
-mvnw
-mvnw.cmd
-pom.xml
-README.md
+## File Structure
+[https://githubtree.mgks.dev/repo/SurajSanap-amd/PhoneixUI-Backend/main/](https://githubtree.mgks.dev/repo/SurajSanap-amd/PhoneixUI-Backend/main/)
 
 ## Data Model
 

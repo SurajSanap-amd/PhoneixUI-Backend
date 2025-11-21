@@ -10,8 +10,10 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/leaderboard")
-@CrossOrigin(origins = "http://localhost:4200")
-public class LeaderboardController {
+@CrossOrigin(origins = {
+    "http://localhost:4200",
+    "https://phoneixui-amdocs.netlify.app"
+})public class LeaderboardController {
 
     private final IdeaService service;
 

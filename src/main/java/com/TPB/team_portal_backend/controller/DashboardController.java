@@ -7,8 +7,10 @@ import java.util.*;
 
 @RestController
 @RequestMapping("/api/dashboard")
-@CrossOrigin(origins = "http://localhost:4200")
-public class DashboardController {
+@CrossOrigin(origins = {
+    "http://localhost:4200",
+    "https://phoneixui-amdocs.netlify.app"
+})public class DashboardController {
 
     private final IdeaService service;
 

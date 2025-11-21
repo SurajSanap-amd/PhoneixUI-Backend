@@ -9,8 +9,10 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/profile")
-@CrossOrigin(origins = "http://localhost:4200")
-public class ProfileController {
+@CrossOrigin(origins = {
+    "http://localhost:4200",
+    "https://phoneixui-amdocs.netlify.app"
+})public class ProfileController {
 
     private final IdeaService service;
 

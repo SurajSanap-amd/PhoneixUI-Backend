@@ -10,8 +10,10 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/submit")
-@CrossOrigin(origins = "http://localhost:4200")
-public class SubmitIdeaController {
+@CrossOrigin(origins = {
+    "http://localhost:4200",
+    "https://phoneixui-amdocs.netlify.app"
+})public class SubmitIdeaController {
 
     private final IdeaService service;
 

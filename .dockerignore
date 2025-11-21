@@ -1,7 +1,10 @@
-.git/
-.gitignore
-.vscode/
-*.log
-node_modules/
+target
+.idea
+.vscode
 *.iml
-.idea/
+.git
+.gitignore
+data
+backup
+logs
+node_modules

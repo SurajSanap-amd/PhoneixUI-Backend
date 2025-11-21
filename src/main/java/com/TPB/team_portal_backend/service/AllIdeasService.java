@@ -24,7 +24,6 @@ public class AllIdeasService {
 
     public List<Idea> getAllIdeas() {
         List<Idea> ideas = repository.findAll();
-        ExcelExporter.writeIdeasSnapshotWithBackup(ideas);
         return ideas;
     }
 

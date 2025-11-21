@@ -2,6 +2,8 @@ package com.TPB.team_portal_backend.service;
 
 import com.TPB.team_portal_backend.model.Idea;
 import com.TPB.team_portal_backend.repository.IdeaRepository;
+import com.TPB.team_portal_backend.util.ExcelExporter;
+
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.data.domain.*;
 import org.springframework.http.*;
@@ -21,7 +23,9 @@ public class AllIdeasService {
     }
 
     public List<Idea> getAllIdeas() {
-        return repository.findAll();
+        List<Idea> ideas = repository.findAll();
+        ExcelExporter.writeIdeasSnapshotWithBackup(ideas);
+        return ideas;
     }
 
     public Page<Idea> getPagedIdeas(int page, int size, String sortBy, String direction) {

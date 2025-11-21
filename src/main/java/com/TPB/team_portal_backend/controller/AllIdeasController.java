@@ -16,7 +16,10 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/ideas")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {
+    "http://localhost:4200",
+    "https://phoneixui-amdocs.netlify.app"
+})
 public class AllIdeasController {
 
     private final IdeaService service;

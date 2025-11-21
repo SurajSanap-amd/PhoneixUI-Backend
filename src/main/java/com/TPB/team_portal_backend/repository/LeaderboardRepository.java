@@ -10,6 +10,6 @@ import java.util.List;
 public interface LeaderboardRepository extends IdeaRepository {
 
     // Example custom query: top liked ideas
-    @Query("SELECT i FROM Idea i ORDER BY i.likes DESC")
-    List<Idea> findTopLikedIdeas();
+    // @Query("SELECT i FROM Idea i ORDER BY i.likes DESC")
+    // List<Idea> findTopLikedIdeas();
 }

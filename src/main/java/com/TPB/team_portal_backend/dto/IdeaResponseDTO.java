@@ -1,10 +1,5 @@
 package com.TPB.team_portal_backend.dto;
 
-import com.TPB.team_portal_backend.enums.Complexity;
-import com.TPB.team_portal_backend.enums.Category;
-import com.TPB.team_portal_backend.enums.ImpactLevel;
-import com.TPB.team_portal_backend.enums.Priority;
-import com.TPB.team_portal_backend.enums.Status;
 import lombok.*;
 import java.time.LocalDateTime;
 
@@ -34,21 +29,26 @@ public class IdeaResponseDTO {
 
     private Boolean automatable;
 
-    private ImpactLevel impact; // High/Medium/Low
+    // Was: private ImpactLevel impact;
+    private String impact; // e.g. "High", "Medium", "Low", "Complex", etc.
 
     private String solution;
 
-    private Status status;
+    // Was: private Status status;
+    private String status;
 
     private String comments;
 
     private String typeOfAsk;
 
-    private Category category;
+    // Was: private Category category;
+    private String category;
 
-    private Priority priority;
+    // Was: private Priority priority;
+    private String priority;
 
-    private Complexity complexity;
+    // Was: private Complexity complexity;
+    private String complexity;
 
     private Integer suggestedPriority;
 

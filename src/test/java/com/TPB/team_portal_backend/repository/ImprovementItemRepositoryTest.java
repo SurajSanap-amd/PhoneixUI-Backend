@@ -1,16 +1,9 @@
 package com.TPB.team_portal_backend.repository;
 
-
+import com.TPB.team_portal_backend.model.Idea;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-
-import com.TPB.team_portal_backend.enums.Category;
-import com.TPB.team_portal_backend.enums.Complexity;
-import com.TPB.team_portal_backend.enums.ImpactLevel;
-import com.TPB.team_portal_backend.enums.Priority;
-import com.TPB.team_portal_backend.enums.Status;
-import com.TPB.team_portal_backend.model.Idea;
 
 import java.time.LocalDateTime;
 
@@ -31,11 +24,12 @@ class IdeaRepositoryTest {
                 .name("Tester")
                 .toilItem("DB Save Test")
                 .description("Testing save operation")
-                .impact(ImpactLevel.LOW)
-                .status(Status.OPEN)
-                .category(Category.BUG)
-                .priority(Priority.MEDIUM)
-                .complexity(Complexity.SIMPLE)
+                // these were enums earlier, now Strings
+                .impact("LOW")
+                .status("OPEN")
+                .category("BUG")
+                .priority("MEDIUM")
+                .complexity("SIMPLE")
                 .build();
 
         Idea saved = repo.save(item);

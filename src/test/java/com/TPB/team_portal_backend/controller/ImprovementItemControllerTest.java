@@ -1,11 +1,6 @@
 package com.TPB.team_portal_backend.controller;
 
-import com.TPB.team_portal_backend.enums.Category;
-import com.TPB.team_portal_backend.enums.Complexity;
-import com.TPB.team_portal_backend.enums.ImpactLevel;
-import com.TPB.team_portal_backend.enums.Priority;
-import com.TPB.team_portal_backend.enums.Status;
-import com.TPB.team_portal_backend.model.Idea;
+import com.TPB.team_portal_backend.dto.IdeaRequestDTO;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,9 +26,7 @@ class IdeaControllerTest {
 
     @Test
     void testCreateIdea() throws Exception {
-        Idea item = Idea.builder()
-                .startTime(LocalDateTime.now())
-                .completionTime(LocalDateTime.now().plusHours(1))
+        IdeaRequestDTO request = IdeaRequestDTO.builder()
                 .email("veeresh@amd.com")
                 .name("Veeresh Anumandla")
                 .toilItem("E2E Parallel Execution")
@@ -43,12 +36,12 @@ class IdeaControllerTest {
                 .frequency("Per run")
                 .manualEffort("2 sprints")
                 .automatable(true)
-                .impact(ImpactLevel.HIGH)
+                .impact("HIGH")                // changed to String
                 .solution("Parallelize setup")
-                .status(Status.OPEN)
-                .category(Category.IMPROVEMENT)
-                .priority(Priority.HIGH)
-                .complexity(Complexity.HIGH)
+                .status("OPEN")                // changed to String
+                .category("IMPROVEMENT")       // changed to String
+                .priority("HIGH")              // changed to String
+                .complexity("HIGH")            // changed to String
                 .suggestedPriority(1)
                 .usDirection("Move to regression")
                 .ownerToCreateUS("Amar")
@@ -58,9 +51,9 @@ class IdeaControllerTest {
 
         mockMvc.perform(post("/api/improvements")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(item)))
+                .content(objectMapper.writeValueAsString(request)))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.email").value("veeresh@amdocs.com"))
+                .andExpect(jsonPath("$.email").value("veeresh@amd.com"))
                 .andExpect(jsonPath("$.priority").value("HIGH"));
     }
 

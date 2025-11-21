@@ -3,19 +3,21 @@ package com.TPB.team_portal_backend.util;
 import com.TPB.team_portal_backend.model.Idea;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import java.io.*;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class ExcelExporter {
 
     private static final String[] HEADERS = {
-        "Start time", "Completion time", "Email", "Name", "Toil/Improvement Item",
-        "Description", "Impacted Component(s)", "Pain Points/Challenges", "Frequency",
-        "Manual Effort (Time Spent)", "Automatable", "Impact(if automated)",
-        "Solution", "Status", "Comments", "Type of ask", "Category",
-        "Priority", "Complexity", "Suggested Priority", "US Direction",
-        "Owner to create US", "Jira Created"
+            "Start time", "Completion time", "Email", "Name", "Toil/Improvement Item",
+            "Description", "Impacted Component(s)", "Pain Points/Challenges", "Frequency",
+            "Manual Effort (Time Spent)", "Automatable", "Impact(if automated)",
+            "Solution", "Status", "Comments", "Type of ask", "Category",
+            "Priority", "Complexity", "Suggested Priority", "US Direction",
+            "Owner to create US", "Jira Created"
     };
 
     public static void writeIdeasToExcel(List<Idea> ideas, String filePath) {
@@ -54,14 +56,17 @@ public class ExcelExporter {
                 row.createCell(8).setCellValue(item.getFrequency() != null ? item.getFrequency() : "");
                 row.createCell(9).setCellValue(item.getManualEffort() != null ? item.getManualEffort() : "");
                 row.createCell(10).setCellValue(item.getAutomatable() != null && item.getAutomatable() ? "Yes" : "No");
-                row.createCell(11).setCellValue(item.getImpact() != null ? item.getImpact().name() : "");
+
+                // These were enums earlier, now plain Strings
+                row.createCell(11).setCellValue(item.getImpact() != null ? item.getImpact() : "");
                 row.createCell(12).setCellValue(item.getSolution() != null ? item.getSolution() : "");
-                row.createCell(13).setCellValue(item.getStatus() != null ? item.getStatus().name() : "");
+                row.createCell(13).setCellValue(item.getStatus() != null ? item.getStatus() : "");
                 row.createCell(14).setCellValue(item.getComments() != null ? item.getComments() : "");
                 row.createCell(15).setCellValue(item.getTypeOfAsk() != null ? item.getTypeOfAsk() : "");
-                row.createCell(16).setCellValue(item.getCategory() != null ? item.getCategory().name() : "");
-                row.createCell(17).setCellValue(item.getPriority() != null ? item.getPriority().name() : "");
-                row.createCell(18).setCellValue(item.getComplexity() != null ? item.getComplexity().name() : "");
+                row.createCell(16).setCellValue(item.getCategory() != null ? item.getCategory() : "");
+                row.createCell(17).setCellValue(item.getPriority() != null ? item.getPriority() : "");
+                row.createCell(18).setCellValue(item.getComplexity() != null ? item.getComplexity() : "");
+
                 row.createCell(19).setCellValue(item.getSuggestedPriority() != null ? item.getSuggestedPriority() : 0);
                 row.createCell(20).setCellValue(item.getUsDirection() != null ? item.getUsDirection() : "");
                 row.createCell(21).setCellValue(item.getOwnerToCreateUS() != null ? item.getOwnerToCreateUS() : "");

@@ -1,19 +1,10 @@
 package com.TPB.team_portal_backend.model;
 
-
-
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
-
 import java.time.LocalDateTime;
-
-import com.TPB.team_portal_backend.enums.Category;
-import com.TPB.team_portal_backend.enums.Complexity;
-import com.TPB.team_portal_backend.enums.ImpactLevel;
-import com.TPB.team_portal_backend.enums.Priority;
-import com.TPB.team_portal_backend.enums.Status;
 
 @Data
 @Entity
@@ -53,28 +44,34 @@ public class Idea {
 
     private Boolean automatable;
 
-    @Enumerated(EnumType.STRING)
-    private ImpactLevel impact; // High/Medium/Low
+    // Was: @Enumerated(EnumType.STRING) private ImpactLevel impact;
+    // Now free text
+    @Column(length = 50)
+    private String impact; // e.g. "High", "Medium", "Low", "Complex", etc.
 
     @Lob
     private String solution;
 
-    @Enumerated(EnumType.STRING)
-    private Status status;
+    // Was: @Enumerated(EnumType.STRING) private Status status;
+    @Column(length = 50)
+    private String status;
 
     @Lob
     private String comments;
 
     private String typeOfAsk;
 
-    @Enumerated(EnumType.STRING)
-    private Category category;
+    // Was: @Enumerated(EnumType.STRING) private Category category;
+    @Column(length = 100)
+    private String category;
 
-    @Enumerated(EnumType.STRING)
-    private Priority priority;
+    // Was: @Enumerated(EnumType.STRING) private Priority priority;
+    @Column(length = 50)
+    private String priority;
 
-    @Enumerated(EnumType.STRING)
-    private Complexity complexity;
+    // Was: @Enumerated(EnumType.STRING) private Complexity complexity;
+    @Column(length = 50)
+    private String complexity;
 
     private Integer suggestedPriority;
 
@@ -89,10 +86,10 @@ public class Idea {
     private LocalDateTime createdDate;
     private LocalDateTime updatedDate;
 
-    //Like System
+    // Like System
+    @Builder.Default
     @Column(nullable = false)
     private Integer likes = 0;
-
 
     @PrePersist
     protected void onCreate() {

@@ -1,0 +1,7 @@
+.git/
+.gitignore
+.vscode/
+*.log
+node_modules/
+*.iml
+.idea/

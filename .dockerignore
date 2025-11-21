@@ -8,3 +8,7 @@ data
 backup
 logs
 node_modules
+*.mv.db
+*.trace.db
+*.zip
+*.xlsx
